@@ -16,7 +16,7 @@ class GALLERYCORE_EXPORT AlbumModel:public QAbstractListModel
     Q_OBJECT
 public:
 
-    enum class Roles{IdRole=Qt::UserRole+1,NameRole};
+    enum Roles{IdRole=Qt::UserRole+1,NameRole};
 
     explicit AlbumModel(QObject * parent=nullptr);
 
@@ -33,7 +33,7 @@ private:
     bool isIndexValid(const QModelIndex &index) const;
 
     DatabaseManager &mDb;
-    std::unique_ptr<std::vector<std::unique_ptr<Album>>> mAlbums;
+    QVector<std::unique_ptr<Album>> mAlbums;
 };
 
 #endif // ALBUMMODEL_H

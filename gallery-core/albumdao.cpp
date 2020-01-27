@@ -38,16 +38,16 @@ void AlbumDao::removeAlbum(int id) const
     query.exec(QString("DELETE FROM albums WHERE id = ") + QString::number(id));
 }
 
-QVector<Album *> AlbumDao::albums() const
+QVector<std::unique_ptr<Album>> AlbumDao::albums() const
 {
     QSqlQuery query("SELECT * FROM albums",mDatabase);
     query.exec();
-    QVector<Album*> list;
+    QVector<std::unique_ptr<Album>> list;
     while (query.next()) {
-        Album* album=new Album;
+        auto album=std::make_unique<Album>();
         album->setId(query.value("id").toInt());
         album->setName(query.value("name").toString());
-        list.append(album);
+        list.append(std::move(album));
     }
     return list;
 }
