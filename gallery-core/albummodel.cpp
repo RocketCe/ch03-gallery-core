@@ -23,8 +23,6 @@ QModelIndex AlbumModel::addAlbum(const Album &album)
 int AlbumModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-
-
     return mAlbums.size();
 }
 
@@ -44,6 +42,35 @@ QVariant AlbumModel::data(const QModelIndex &index, int role) const
     default:
         return QVariant();
     }
+}
+
+bool AlbumModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    if(!isIndexValid(index) || role!=Roles::NameRole){
+        return false;
+    }
+    Album& album=*mAlbums.at(index.row());
+    album.setName(value.toString());
+    mDb.albumDao.updateAlbum(album);
+
+    emit dataChanged(index,index);
+    return true;
+}
+
+bool AlbumModel::removeRows(int row, int count, const QModelIndex &parent)
+{
+    if(row<0 || row>=rowCount() || count<0 || (row+count)>rowCount()){
+        return false;
+    }
+    beginRemoveRows(parent,row,row+count-1);
+    int countLeft=count;
+    while (countLeft--) {
+        const Album& album=*mAlbums.at(row+countLeft);
+        mDb.albumDao.removeAlbum(album.id());
+    }
+    mAlbums.erase(mAlbums.begin()+row,mAlbums.begin()+row+count);
+    endRemoveRows();
+    return true;
 }
 
 QHash<int, QByteArray> AlbumModel::roleNames() const

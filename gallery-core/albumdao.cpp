@@ -31,6 +31,12 @@ void AlbumDao::addAlbum(Album &album) const
     album.setId(query.lastInsertId().toInt());
 }
 
+void AlbumDao::updateAlbum(const Album &album) const
+{
+    QSqlQuery query(mDatabase);
+    query.exec("UPDATE albums SET name = '"+album.name()+"' WHERE id = "+QString::number(album.id()));
+}
+
 void AlbumDao::removeAlbum(int id) const
 {
     QSqlQuery query(mDatabase);
