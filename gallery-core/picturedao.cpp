@@ -24,9 +24,10 @@ void PictureDao::init() const
 
 void PictureDao::addPictureInAlbum(int albumId, Picture &picture) const
 {
-    Q_UNUSED(albumId)
     QSqlQuery query(mDatabase);
-    query.exec(QString("INSERT INTO pictures VALUES ("+QString::number(picture.id())+","+QString::number(picture.albumId())+","+picture.fileUrl().toString()+")"));
+    query.exec(QString("INSERT INTO pictures (album_id,url) VALUES ("+QString::number(albumId)+",'"+picture.fileUrl().toString()+"')"));
+    picture.setAlbumId(albumId);
+    picture.setId(query.lastInsertId().toInt());
 }
 
 void PictureDao::removePicture(int id) const
