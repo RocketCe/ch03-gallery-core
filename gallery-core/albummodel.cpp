@@ -80,3 +80,8 @@ QHash<int, QByteArray> AlbumModel::roleNames() const
     roles[Roles::NameRole]="name";
     return roles;
 }
+
+bool AlbumModel::isIndexValid(const QModelIndex &index) const
+{
+    return index.row()<rowCount();
+}
