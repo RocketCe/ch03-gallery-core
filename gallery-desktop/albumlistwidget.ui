@@ -46,12 +46,16 @@
        <property name="text">
         <string>Create</string>
        </property>
+       <property name="icon">
+        <iconset resource="someicons.qrc">
+         <normaloff>:/icons/create.jpg</normaloff>:/icons/create.jpg</iconset>
+       </property>
       </widget>
      </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QListView" name="listView">
+  <widget class="QListView" name="albumList">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -62,6 +66,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="someicons.qrc"/>
+ </resources>
  <connections/>
 </ui>
