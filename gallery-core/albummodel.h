@@ -33,7 +33,7 @@ private:
     bool isIndexValid(const QModelIndex &index) const;
 
     DatabaseManager &mDb;
-    QVector<std::unique_ptr<Album>> mAlbums;
+    std::vector<std::unique_ptr<Album>> mAlbums;
 };
 
 #endif // ALBUMMODEL_H

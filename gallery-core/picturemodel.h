@@ -40,7 +40,7 @@ private:
 private:
     DatabaseManager& mDb;
     int mAlbumId;
-    QVector<std::unique_ptr<Picture>> mPictures;
+    std::vector<std::unique_ptr<Picture>> mPictures;
 };
 
 #endif // PICTUREMODEL_H

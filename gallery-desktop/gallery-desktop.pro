@@ -16,13 +16,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    albumlistwidget.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    albumlistwidget.h \
     mainwindow.h
 
 FORMS += \
+    albumlistwidget.ui \
     mainwindow.ui
 
 # Default rules for deployment.
@@ -36,3 +39,6 @@ else:unix: LIBS += -L$$OUT_PWD/../gallery-core/ -lgallery-core
 
 INCLUDEPATH += $$PWD/../gallery-core
 DEPENDPATH += $$PWD/../gallery-core
+
+RESOURCES += \
+    someicons.qrc

@@ -42,11 +42,11 @@ void PictureDao::removePictureForAlum(int albumId) const
     query.exec("DELETE FROM pictures WHERE album_id = "+QString::number(albumId));
 }
 
-QVector<std::unique_ptr<Picture>> PictureDao::picturesForAlbum(int albumId) const
+std::vector<std::unique_ptr<Picture>> PictureDao::picturesForAlbum(int albumId) const
 {
     QSqlQuery query(mDatabase);
     query.exec("SELECT * FROM pictures WHERE album_id = "+QString::number(albumId));
-    QVector<std::unique_ptr<Picture>> list;
+    std::vector<std::unique_ptr<Picture>> list;
     while (query.next()) {
         auto temp=std::make_unique<Picture>();
         temp->setId(query.value("id").toInt());

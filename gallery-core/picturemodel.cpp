@@ -72,6 +72,11 @@ void PictureModel::clearAlbum()
 
 }
 
+void PictureModel::deletePictureForAlbum()
+{
+
+}
+
 void PictureModel::loadPictures(int albumId)
 {
     if(albumId<=0){
