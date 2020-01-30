@@ -18,11 +18,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     albumlistwidget.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    thumbnailproxymodel.cpp
 
 HEADERS += \
     albumlistwidget.h \
-    mainwindow.h
+    mainwindow.h \
+    thumbnailproxymodel.h
 
 FORMS += \
     albumlistwidget.ui \
