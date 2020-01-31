@@ -16,7 +16,7 @@ public:
 
     QVariant data(const QModelIndex& index,int role) const override;
     void setSourceModel(QAbstractItemModel *sourceModel) override;
-    PictureModel* pictureModel() const;
+    PictureModel *pictureModel() const;
 
 private:
     void generateThumbnails(const QModelIndex& startIndex,int count);
