@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     albumlistwidget.cpp \
     albumwidget.cpp \
+    gallerywidget.cpp \
     main.cpp \
     mainwindow.cpp \
     picturedelegate.cpp \
@@ -27,6 +28,7 @@ SOURCES += \
 HEADERS += \
     albumlistwidget.h \
     albumwidget.h \
+    gallerywidget.h \
     mainwindow.h \
     picturedelegate.h \
     picturewidget.h \
@@ -35,6 +37,7 @@ HEADERS += \
 FORMS += \
     albumlistwidget.ui \
     albumwidget.ui \
+    gallerywidget.ui \
     mainwindow.ui \
     picturewidget.ui
 
