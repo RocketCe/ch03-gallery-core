@@ -20,18 +20,23 @@ SOURCES += \
     albumwidget.cpp \
     main.cpp \
     mainwindow.cpp \
+    picturedelegate.cpp \
+    picturewidget.cpp \
     thumbnailproxymodel.cpp
 
 HEADERS += \
     albumlistwidget.h \
     albumwidget.h \
     mainwindow.h \
+    picturedelegate.h \
+    picturewidget.h \
     thumbnailproxymodel.h
 
 FORMS += \
     albumlistwidget.ui \
     albumwidget.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    picturewidget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
